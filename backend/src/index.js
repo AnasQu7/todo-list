@@ -1,5 +1,5 @@
 const connection = require("./config/db");
-const expess = require('express');
+const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const signupRouter = require('./routes/signup.routes');
@@ -10,7 +10,7 @@ const { default: mongoose } = require("mongoose");
 
 const PORT = process.env.PORT
 
-const app = expess()
+const app = express()
 
 
 
@@ -19,7 +19,7 @@ mongoose.set("strictQuery", false);
 app.use(express.urlencoded({extended:true}))
 
 app.use(cors())
-app.use(expess.json())
+app.use(express.json())
 
 
 app.use("/signup",signupRouter)
