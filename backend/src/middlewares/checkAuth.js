@@ -3,7 +3,7 @@ const UserModel = require('../models/user.model');
 
 
 const checkAuth = async(req,res,next)=>{
-    const token = req.headers["authorization"]
+    const token = req.headers["authorization"];
     console.log(token)
     if(!token){
       return res.status(401).send("Please Login to get Access")

@@ -17,9 +17,11 @@ app.use(expess.json())
 
 app.use("/signup",signupRouter)
 app.use("/login",loginRouter)
-app.use("/todos",todoRouter)
 app.use(checkAuth)
-
+app.use("/todos",todoRouter)
+app.get("/checkauth",async(req,res)=>{
+    return res.status(201).send({message:"authorized"})
+})
 app.get("/",(req,res)=>{
     res.send("hello")
 })
