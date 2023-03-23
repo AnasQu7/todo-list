@@ -6,10 +6,17 @@ const signupRouter = require('./routes/signup.routes');
 const loginRouter = require('./routes/login.routes');
 const todoRouter = require('./routes/todos.routes');
 const checkAuth = require("./middlewares/checkAuth");
+const { default: mongoose } = require("mongoose");
 
 const PORT = process.env.PORT
 
 const app = expess()
+
+
+
+mongoose.set("strictQuery", false);
+
+app.use(express.urlencoded({extended:true}))
 
 app.use(cors())
 app.use(expess.json())
